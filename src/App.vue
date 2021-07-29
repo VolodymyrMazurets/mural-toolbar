@@ -158,6 +158,7 @@ export default {
     width: 200px;
     height: 200px;
     background-color: rgb(142, 202, 230);
+    border: 1px solid brown;
   }
   &__area-first {
     left: 10%;
