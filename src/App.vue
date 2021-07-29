@@ -1,8 +1,8 @@
 <template>
   <div class="App">
     <div class="App__area" ref="container" @click="handleContainerClick">
-      Draggable zone. Click on blue square to turn on draggable mode. To dissable it
-      click on empty space in this container
+      Draggable zone. Click on blue square to turn on draggable mode. To
+      dissable it click on empty space in this container
       <div
         ref="firstArea"
         class="App__area-first"
@@ -70,24 +70,22 @@ export default {
         ? console.log(firstRect, toolbarRect)
         : console.log(secondRect, toolbarRect);
 
-      if (!this.draggable) {
-        gsap.to([item1[0], item2[0], item3[0], item4[0]], {
-          y: topOffset,
-          x: leftOffset,
-          backgroundColor: "red",
-          duration: 0.5,
-          ease: "power2.inOut",
-          stagger: 0.1,
-          onComplete: () => {
-            this.draggable = Draggable.create([item1, item2, item3, item4], {
-              bounds: container,
-              throwProps: true,
-              onClick() {},
-              onDragEnd() {},
-            });
-          },
-        });
-      }
+      gsap.to([item1[0], item2[0], item3[0], item4[0]], {
+        y: topOffset,
+        x: leftOffset,
+        backgroundColor: "red",
+        duration: 0.5,
+        ease: "power2.inOut",
+        stagger: 0.1,
+        onComplete: () => {
+          this.draggable = Draggable.create([item1, item2, item3, item4], {
+            bounds: container,
+            throwProps: true,
+            onClick() {},
+            onDragEnd() {},
+          });
+        },
+      });
     },
     handleContainerClick() {
       const { item1, item2, item3, item4 } = this.$refs;
